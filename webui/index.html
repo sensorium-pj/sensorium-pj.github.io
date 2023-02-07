@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/webui/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sensorium</title>
+    <script type="module" crossorigin src="/webui/assets/index-2cec770a.js"></script>
+    <link rel="stylesheet" href="/webui/assets/index-56fa503c.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function () {
+        const x404 = new URLSearchParams(location.search).get('x404');
+        if (x404) {
+          const route = location.href.substr(location.origin.length + 1);
+          const segments = route.split("/");
+          const basename = segments.shift();
+          const subRoute = decodeURIComponent(x404);
+          history.replaceState(null, null, `/${basename}/${subRoute}`)
+        }
+      })
+    </script>
+    
+  </body>
+</html>
