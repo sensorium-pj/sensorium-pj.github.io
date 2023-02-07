@@ -2,13 +2,16 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>404 Not Found</title>
+  <title>Redirecting</title>
 </head>
 <body>
-  404 Not Found
+  Redirecting
   <script>
     // ref: https://maku.blog/p/9u8it5f/
-    if (!new URLSearchParams(location.search).has('x404')) {
+    if (new URLSearchParams(location.search).has('x404')) {
+      document.title = '404 Not Found';
+      document.body.textContent = '404 Not Found';
+    } else {
       const route = location.href.substr(location.origin.length + 1);
       const segments = route.split("/");
       const basename = segments.shift();
