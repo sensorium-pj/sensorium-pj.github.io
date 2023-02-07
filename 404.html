@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>404 Not Found</title>
+</head>
+<body>
+  404 Not Found
+  <script>
+    // ref: https://maku.blog/p/9u8it5f/
+    const route = location.href.substr(location.origin + 1);
+    const segments = route.split("/");
+    const basename = segments.shift();
+    const subRoute = segments.join("/");
+    location.replace(`/${basename}?p=${encodeURIComponent(subRoute)}`);
+  </script>
+</body>
+</html>
