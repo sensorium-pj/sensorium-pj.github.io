@@ -8,11 +8,13 @@
   404 Not Found
   <script>
     // ref: https://maku.blog/p/9u8it5f/
-    const route = location.href.substr(location.origin.length + 1);
-    const segments = route.split("/");
-    const basename = segments.shift();
-    const subRoute = segments.join("/");
-    location.replace(`/${basename}?p=${encodeURIComponent(subRoute)}`);
+    if (!new URLSearchParams(location.search).has('x404')) {
+      const route = location.href.substr(location.origin.length + 1);
+      const segments = route.split("/");
+      const basename = segments.shift();
+      const subRoute = segments.join("/");
+      location.replace(`/${basename}?x404=${encodeURIComponent(subRoute)}`);
+    }
   </script>
 </body>
 </html>
