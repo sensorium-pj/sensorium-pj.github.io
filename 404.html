@@ -8,7 +8,7 @@
   404 Not Found
   <script>
     // ref: https://maku.blog/p/9u8it5f/
-    const route = location.href.substr(location.origin + 1);
+    const route = location.href.substr(location.origin.length + 1);
     const segments = route.split("/");
     const basename = segments.shift();
     const subRoute = segments.join("/");
